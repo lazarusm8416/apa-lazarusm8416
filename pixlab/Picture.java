@@ -98,7 +98,78 @@ public class Picture extends SimplePicture
     }
   }
   
-////////////////////////////////////////////////////////////
+///////////////////////lab assesment////////////////////////
+
+/*public void blur(int x, int y, int w, int h){
+	Pixel[][] pixels = this.getPixels2D();
+	//Pixel blurring = null;
+	int red = 0;
+	int blue = 0;
+	int green = 0;
+	int count = 0;
+
+	for (int r = x; r<w+x; r++)
+		for (int c = y; c<h+y;c++){
+			//blurring = pixels[r][c];
+
+			for (int i=-1;i<2;i++)
+				for (int j=-1;j<2;j++)
+					if (r+i>0&&r+i<pixels.length&&c+j>0&&c+j<pixels[0].length){
+						red+=pixels[r+i][c+j].getRed();
+						blue+=pixels[r+i][c+j].getBlue();
+						green+=pixels[r+i][c+j].getGreen();
+						count+=1;
+					}
+			red/=count;
+			green/=count;
+			blue/=count;
+
+			pixels[r][c].setRed(0);
+			pixels[r][c].setGreen(0);
+			pixels[r][c].setBlue(0);
+
+			red=0;
+			green=0;
+			blue=0;
+			count=0;
+		}
+}*/
+public void blur(int x, int y, int w, int h){
+	Pixel[][] pixels = this.getPixels2D();
+	Pixel blur = null;
+	int red = 0;
+	int green = 0;
+	int blue = 0;
+	int count = 0;
+	
+	for (int r = x;r<x+w;r++)
+		for (int c = y; c<y+h;c++){
+		blur = pixels[r][c];
+
+		for (int i=-1;i<2;i++)
+			for (int j =-1; j<2;j++)
+				if (r+i>=0 && r+i<=pixels.length && c+j>=0 && c+j<=pixels[0].length){
+					red+=pixels[r+i][c+j].getRed();
+					green+=pixels[r+i][c+j].getGreen();
+					blue+=pixels[r+i][c+j].getBlue();
+					count+=1;
+				}
+		
+		red=red/count;
+		green=green/count;
+		blue=blue/count;
+		
+		blur.setRed(red);
+		blur.setGreen(green);
+		blur.setBlue(blue);
+		}
+}
+
+////////////////////////activities////////////////////////////
+
+
+
+
 public void myCollage(Picture pic1, Picture pic2, Picture pic3){
 	Pixel p = null;
 	Pixel o = null;
@@ -128,6 +199,9 @@ public void myCollage(Picture pic1, Picture pic2, Picture pic3){
 			x.setColor(o.getColor());
 		}
 }
+
+
+
 
 public void keepOnlyBlue(){
 	Pixel[][] pixels = this.getPixels2D();

@@ -8,6 +8,14 @@
  */
 public class PictureTester
 {
+//////////////////////////lab//////////
+public static void testBlur(int x, int y, int w, int h, int n){
+	Picture swan = new Picture("swan.jpg");
+	for (int i = 0; i<n;i++)
+		swan.blur(x,y,w,h);
+	swan.explore();
+}
+
 ///////////////////////
 
 public static void testKeepOnlyBlue(){
@@ -114,10 +122,11 @@ public static void testDiagonal(){
     // uncomment a call here to run a test
     // and comment out the ones you don't want
     // to run
-    testHorizantalMirror();
-    testHorizantalMirrorBotToTop();
-    findFish();
-    testZeroBlue();
+    testBlur(300,50,50,100,10);
+//   testHorizantalMirror();
+    //testHorizantalMirrorBotToTop();
+    //findFish();
+    //testZeroBlue();
     //testKeepOnlyBlue();
     //testKeepOnlyRed();
     //testKeepOnlyGreen();
