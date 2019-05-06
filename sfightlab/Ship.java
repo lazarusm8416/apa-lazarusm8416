@@ -16,17 +16,18 @@ public class Ship extends MovingThing
 
   public Ship()
   {
-    this(10,10,50,50,50);
+    this(10,10,50,50,10);
   }
 
   public Ship(int x, int y)
   {
-    super(x,y);
+    super(x,y,50,50);
+	speed = 50;
   }
 
   public Ship(int x, int y, int s)
   {
-    super(x,y);
+    super(x,y,50,50);
 	speed=s;
   }
 
@@ -58,6 +59,7 @@ public class Ship extends MovingThing
 
   public void move(String direction)
   {
+	System.out.println("MOVE");
 	if (direction.equals("up"))
 		setY(getY()-speed);
 	if (direction.equals("down"))
@@ -75,6 +77,6 @@ public class Ship extends MovingThing
 
   public String toString()
   {
-    return super.toString() + getSpeed();
+    return super.toString() + " "+ getSpeed();
   }
 }

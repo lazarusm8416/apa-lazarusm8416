@@ -17,14 +17,13 @@ import java.util.ArrayList;
 public class OuterSpace extends Canvas implements KeyListener, Runnable
 {
   private Ship ship;
-  private Alien alienOne;
-  private Alien alienTwo;
+ // private Alien alienOne;
+  //private Alien alienTwo;
 
-  /* uncomment once you are ready for this part
-   *
+  
    private AlienHorde horde;
    private Bullets shots;
-  */
+  
 
   private boolean[] keys;
   private BufferedImage back;
@@ -34,11 +33,12 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable
     setBackground(Color.black);
 
     keys = new boolean[5];
+	horde = new AlienHorde(4);
+	shots = new Bullets();
+	ship = new Ship(400,300,50,50,3);
 
-	ship = new Ship();
-
-	alienOne = new Alien(200,100);
-	alienTwo = new Alien(100,100);
+	//alienOne = new Alien(200,100);
+	//alienTwo = new Alien(100,100);
     //instantiate other instance variables
     //Ship, Alien
 
@@ -73,23 +73,38 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable
     graphToBack.fillRect(0,0,800,600);
 
 	ship.draw(graphToBack);
+	horde.drawEmAll(graphToBack);
+	horde.moveEmAll();
+	shots.drawEmAll(graphToBack);
+	shots.moveEmAll();
+	shots.cleanEmUp();
+	horde.removeDeadOnes(shots.getList());
+
 
     if(keys[0] == true)
-    {
+    {System.out.println("AAAAAA");
         ship.move("left");
     }
     if (keys[1]==true){
+	System.out.println("BBBB");
 	ship.move("right");
 	}
 
     if (keys[2]==true){
+	System.out.println("CCCCCC");
 	ship.move("up");
 	}
 
     if (keys[3]==true){
+	System.out.println("DDDDDD");
 	ship.move("down");
 	}
-	ship.draw(graphToBack);
+	
+	if (keys[4]==true){
+		System.out.println("shooot");
+		shots.add(new Ammo(ship.getX()+(ship.getWidth()/2),ship.getY(),6));
+		keys[4]=false;
+	}
     //add code to move Ship, Alien, etc.
 
 
@@ -97,11 +112,13 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable
 
 
     twoDGraph.drawImage(back, null, 0, 0);
+	//System.out.println(ship);
   }
 
 
   public void keyPressed(KeyEvent e)
   {
+	//System.out.println("KEYPRESS");
     if (e.getKeyCode() == KeyEvent.VK_LEFT)
     {
       keys[0] = true;
@@ -127,6 +144,7 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable
 
   public void keyReleased(KeyEvent e)
   {
+	//System.out.println("keyRELEASED");
     if (e.getKeyCode() == KeyEvent.VK_LEFT)
     {
       keys[0] = false;

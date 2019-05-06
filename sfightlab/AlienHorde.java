@@ -17,6 +17,14 @@ public class AlienHorde
   public AlienHorde(int size)
   {
 	aliens=new ArrayList<Alien>(size);
+	int s=size*50;
+	if (s>0){
+		for (int x = 50; x<= s+50; x+=100){
+			for (int y = 50; y<=s; y+=100){
+				aliens.add(new Alien(x,y,1));
+			}
+		}
+	}
   }
 
   public void add(Alien al)
@@ -34,17 +42,34 @@ public class AlienHorde
   public void moveEmAll()
   {
 	for (Alien al : aliens){
-		for (int i =0; i<50; i++)
+		if (al.getX()<=570){
 			al.move("right");
-		for (int j =0; j<50;j++)
+		}
+		if (al.getX()==570){
 			al.move("down");
-		for (int a=0; a<50; a++)
-			al.move("left");
+			al.setSpeed(al.getSpeed()*-1);
+		}
+		if (al.getX()==30){
+			al.setSpeed(al.getSpeed()*-1);
+			al.move("down");
+		}
 	}
   }
 
   public void removeDeadOnes(List<Ammo> shots)
   {
+	if (aliens.size()>0&&shots.size()>0){
+		System.out.println("there are bullets&aliens");
+		for (int i = aliens.size()-1; i<0 ;i--){
+			for (int j=shots.size()-1; j<0; j--){
+				if (shots.get(j).didColide(aliens.get(i))){
+					System.out.println("hit");
+					aliens.remove(i);
+				}
+			}
+		}
+	}
+
   }
 
   public String toString()

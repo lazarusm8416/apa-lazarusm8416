@@ -14,18 +14,19 @@ public class Ammo extends MovingThing
 
   public Ammo()
   {
-    this(0,0,0);
+    this(0,0,20);
   }
 
   public Ammo(int x, int y)
   {
-    super(x,y);
+    this(x,y,20);
   }
 
   public Ammo(int x, int y, int s)
   {
-    super(x,y);
+    super(x,y,5,5);
 	speed=s;
+	System.out.println("bullet");
   }
 
   public void setSpeed(int s)
@@ -40,14 +41,22 @@ public class Ammo extends MovingThing
 
   public void draw( Graphics window )
   {
+	window.setColor(Color.YELLOW);
     window.drawRect(getX(),getY(),getWidth(),getHeight());
   }
-        
-        
+   
   public void move( String direction )
   {
-    if (direction.equals("up"))
-	setX(getX()-speed);
+    if (direction.equals("shoot"))
+	setY(getY()-speed);
+  }
+
+  public boolean didColide(Alien al){
+	if (getX()>=al.getX()&&getX()<=al.getX()+al.getWidth()&&getY()>=al.getY()&&getY()<=al.getY()+al.getHeight()){
+		System.out.println("colide");
+		return true;
+	}
+	return false;
   }
 
   public String toString()
