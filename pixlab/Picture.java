@@ -167,7 +167,30 @@ public void blur(int x, int y, int w, int h){
 
 ////////////////////////activities////////////////////////////
 
+  public void mirrorArms() {
+	int rowTop = 160;
+	int rowBot = 192;
+	  
+	int colLeft = 106;
+	int colRight = 171;
+	
+	int widthBetween = 70 + (colRight-colLeft);
 
+	mirrorSquare(colLeft,colRight,rowTop,rowBot,-8,68);
+	mirrorSquare(colLeft+widthBetween,colRight + widthBetween, rowTop,rowBot,4,68);
+  }
+  
+  /**Method that duplicates a seagull in a picture
+   * so that there are two seagulls near eachother */
+  public void mirrorGull() {
+	int rowTop = 236;
+	int rowBot = 325;	  
+	int colLeft = 239;
+	int colRight = 345;
+	int width = colRight-colLeft;
+		
+	mirrorSquare(colLeft, colRight, rowTop, rowBot, -5 -width,0); 
+  }
 
 
 public void myCollage(Picture pic1, Picture pic2, Picture pic3){
