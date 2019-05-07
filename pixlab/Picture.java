@@ -198,8 +198,11 @@ public void myCollage(Picture pic1, Picture pic2, Picture pic3){
 	Pixel x = null;
 	Pixel[][] coll = this.getPixels2D();
 	Pixel[][] one = pic1.getPixels2D();
+	one.keepOnlyBlue();
 	Pixel[][] two = pic2.getPixels2D();
+	two.keepOnlyRed();
 	Pixel[][] three = pic3.getPixels2D();
+	three.keepOnlyGreen();
 	for (int r=0; r<coll.length/2;r++)
 		for (int c=0;c<coll[0].length/2;c++){
 			p=coll[r][c];
