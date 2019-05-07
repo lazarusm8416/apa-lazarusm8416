@@ -84,6 +84,14 @@ public static void testDiagonal(){
 	p.Diag();
 	p.explore();
 }
+
+public static void testCopy(){
+	  Picture g = new Picture("seagull.jpg");
+	  Picture s = new Picture("swan.jpg");
+	  canvas.copy(other, 20, 20, 237, 345, 234, 320);
+	  canvas.explore();
+}
+	
 /////////////////
 
   /** Method to test zeroBlue */
@@ -116,9 +124,12 @@ public static void testDiagonal(){
   /** Method to test the collage method */
   public static void testCollage()
   {
-    Picture canvas = new Picture("640x480.jpg");
-    canvas.createCollage();
-    canvas.explore();
+    Picture art = new Picture("640x480.jpg");
+    Picture one = new Picture("snowman.jpg");
+    Picture two = new Picture("swan.jpg");
+    Picture three = new Picture("seagull.jpg");
+    art.myCollage(one,two,three);
+    art.explore();
   }
   
   /** Method to test edgeDetection */
@@ -139,7 +150,6 @@ public static void testDiagonal(){
     testBlur(300,50,50,100,10);
     testHorizantalMirror();
     testHorizantalMirrorBotToTop();
-    findFish();
     testZeroBlue();
     testKeepOnlyBlue();
     testKeepOnlyRed();
@@ -149,11 +159,11 @@ public static void testDiagonal(){
     testFixUnderwater();
     testMirrorVertical();
     testMirrorTemple();
-    //testMirrorArms();
-    //testMirrorGull();
-    //testMirrorDiagonal();
-    //testCollage();
-    //testCopy();
+    testMirrorArms();
+    testMirrorGull();
+    testMirrorDiagonal();
+    testCollage();
+    testCopy();
     //testEdgeDetection();
     //testEdgeDetection2();
     //testChromakey();
