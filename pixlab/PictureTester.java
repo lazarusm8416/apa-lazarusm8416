@@ -39,7 +39,7 @@ public static void testGrayscale(){
 	beach.explore();
 }
 
-public static void findFish(){
+public static void fixUnderwater(){
 	Picture fish = new Picture("water.jpg");
 	fish.explore();
 	fish.findFish();
@@ -123,18 +123,18 @@ public static void testDiagonal(){
     // and comment out the ones you don't want
     // to run
     testBlur(300,50,50,100,10);
-//   testHorizantalMirror();
-    //testHorizantalMirrorBotToTop();
-    //findFish();
-    //testZeroBlue();
-    //testKeepOnlyBlue();
-    //testKeepOnlyRed();
-    //testKeepOnlyGreen();
-    //testNegate();
-    //testGrayscale();
-    //testFixUnderwater();
-    //testMirrorVertical();
-    //testMirrorTemple();
+    testHorizantalMirror();
+    testHorizantalMirrorBotToTop();
+    findFish();
+    testZeroBlue();
+    testKeepOnlyBlue();
+    testKeepOnlyRed();
+    testKeepOnlyGreen();
+    testNegate();
+    testGrayscale();
+    testFixUnderwater();
+    testMirrorVertical();
+    testMirrorTemple();
     //testMirrorArms();
     //testMirrorGull();
     //testMirrorDiagonal();
