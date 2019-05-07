@@ -17,6 +17,20 @@ public static void testBlur(int x, int y, int w, int h, int n){
 }
 
 ///////////////////////
+	
+public static void testMirrorrms(){
+	Picture snow = new Picture("snowman.jpg");
+	snow.explore();
+	snow.mirrorArms();
+	snow.explore();
+}
+	
+public static void testMirrorGull(){
+	Picture gull = new Picture("seagull.jpg");
+	gull.explore();
+	gull.testMirrorGull();
+	gull.explore();
+}
 
 public static void testKeepOnlyBlue(){
 	Picture swan = new Picture("swan.jpg");
