@@ -371,21 +371,20 @@ public void mirrorRectangle(int x1, int y1, int x2, int y2, boolean vertical){
 	}
   }
 
-public void copyNew(Picture fromPic, int FRS, int FRE, int FCS, int FCE, int TSR, int TSC){
-	Pixel one = null;
-	Pixel two = null;
-	Pixel[][] from = fromPic.getPixels2D();
-	Pixel[][] to = this.getPixels2D();
-	int width = FCE-FCS;
-	int height = FRE-FRS;
-	for (int r = 0; r<height; r++)
-		for (int c = 0; c<width; c++){
-			one = from[FRS+r][FCS+c];
-			two = to[TSR+r][TSC+c];
-			two.setColor(one.getColor());
-		}
-}
-
+ public void copy2(Picture fromPic, int startRow, int startCol, int startX, int endX, int startY, int endY) {
+    Pixel fromPixel = null;
+    Pixel toPixel = null;
+    Pixel[][] toPixels = this.getPixels2D();
+    Pixel[][] fromPixels = fromPic.getPixels2D();
+    
+    for (int fromRow = startY, toRow = startRow; fromRow < endY && toRow < toPixels.length; fromRow++, toRow++){
+      for (int fromCol = startX, toCol = startCol; fromCol < endX && toCol < toPixels[0].length; fromCol++, toCol++){
+    	fromPixel = fromPixels[fromRow][fromCol];
+        toPixel = toPixels[toRow][toCol];
+        toPixel.setColor(fromPixel.getColor());
+      }
+    }   
+ }
 //////////////////////////////////////////////////////////
   /** Method that mirrors the picture around a 
     * vertical mirror in the center of the picture
@@ -430,8 +429,10 @@ public void copyNew(Picture fromPic, int FRS, int FRE, int FCS, int FCE, int TSR
         rightPixel = pixels[row]                       
                          [mirrorPoint - col + mirrorPoint];
         rightPixel.setColor(leftPixel.getColor());
+	count+=1;
       }
     }
+    System.out.println(count);
   }
   
   /** copy from the passed fromPic to the
