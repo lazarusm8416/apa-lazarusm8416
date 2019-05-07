@@ -170,7 +170,6 @@ public void blur(int x, int y, int w, int h){
   public void mirrorArms() {
 	int rowTop = 160;
 	int rowBot = 192;
-	  
 	int colLeft = 106;
 	int colRight = 171;
 	
@@ -350,6 +349,27 @@ public void mirrorRectangle(int x1, int y1, int x2, int y2, boolean vertical){
 			}
 	}
 }
+
+  public void mirrorSquare(int x1, int x2, int y1, int y2, int xShift, int yShift) {
+  
+	int colLeft = x1;
+	int colRight = x2;
+	int rowTop = y1;
+	int rowBot = y2;
+
+
+	Pixel pixelOne = null;
+	Pixel pixelTwo = null;
+	Pixel[][] pixels = this.getPixels2D();
+		  
+	for(int col = colLeft ; col < colRight; col++) {
+		for (int row = rowTop; row < rowBot; row++) {
+			pixelOne = pixels[row][col];
+			pixelTwo = pixels[row + yShift][col+xShift];
+			pixelTwo.setColor(pixelOne.getColor());
+		}
+	}
+  }
 
 public void copyNew(Picture fromPic, int FRS, int FRE, int FCS, int FCE, int TSR, int TSC){
 	Pixel one = null;
