@@ -139,6 +139,13 @@ public static void testCopy(){
     swan.edgeDetection(10);
     swan.explore();
   }
+public static void testEdgeDetection2(){
+	Picture s = new Picture("swan.jpg");
+	s.edgeDetection(10);
+	s.explore();
+	s.edgeDetection2(10);
+	s.explore
+}
   
   /** Main method for testing.  Every class can have a main
     * method in Java */
