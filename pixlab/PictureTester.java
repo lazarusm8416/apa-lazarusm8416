@@ -18,7 +18,7 @@ public static void testBlur(int x, int y, int w, int h, int n){
 
 ///////////////////////
 	
-public static void testMirrorrms(){
+public static void testMirrorArms(){
 	Picture snow = new Picture("snowman.jpg");
 	snow.explore();
 	snow.mirrorArms();
@@ -28,7 +28,7 @@ public static void testMirrorrms(){
 public static void testMirrorGull(){
 	Picture gull = new Picture("seagull.jpg");
 	gull.explore();
-	gull.testMirrorGull();
+	gull.mirrorGull();
 	gull.explore();
 }
 
@@ -53,7 +53,7 @@ public static void testGrayscale(){
 	beach.explore();
 }
 
-public static void fixUnderwater(){
+public static void testFixUnderwater(){
 	Picture fish = new Picture("water.jpg");
 	fish.explore();
 	fish.findFish();
@@ -78,7 +78,7 @@ public static void testHorizantalMirrorBotToTop(){
 	p.explore();
 }
 
-public static void testDiagonal(){
+public static void testMirrorDiagonal(){
 	Picture p = new Picture ("swan.jpg");
 	p.explore();
 	p.Diag();
@@ -86,9 +86,9 @@ public static void testDiagonal(){
 }
 
 public static void testCopy(){
-	  Picture g = new Picture("seagull.jpg");
+	  Picture canvas = new Picture("seagull.jpg");
 	  Picture s = new Picture("swan.jpg");
-	  canvas.copy(other, 20, 20, 237, 345, 234, 320);
+	  canvas.copy2(s, 20, 20, 237, 345, 234, 320);
 	  canvas.explore();
 }
 	
@@ -124,10 +124,13 @@ public static void testCopy(){
   /** Method to test the collage method */
   public static void testCollage()
   {
-    Picture art = new Picture("640x480.jpg");
-    Picture one = new Picture("snowman.jpg");
-    Picture two = new Picture("swan.jpg");
-    Picture three = new Picture("seagull.jpg");
+    Picture art = new Picture("temple.jpg");
+    Picture one = new Picture("temple.jpg");
+	one.keepOnlyBlue();
+    Picture two = new Picture("temple.jpg");
+	two.zeroBlue();
+    Picture three = new Picture("temple.jpg");
+	three.negate();
     art.myCollage(one,two,three);
     art.explore();
   }
@@ -144,7 +147,7 @@ public static void testEdgeDetection2(){
 	s.edgeDetection(10);
 	s.explore();
 	s.edgeDetection2(10);
-	s.explore
+	s.explore();
 }
   
   /** Main method for testing.  Every class can have a main
@@ -154,25 +157,25 @@ public static void testEdgeDetection2(){
     // uncomment a call here to run a test
     // and comment out the ones you don't want
     // to run
-    testBlur(300,50,50,100,10);
-    testHorizantalMirror();
-    testHorizantalMirrorBotToTop();
-    testZeroBlue();
-    testKeepOnlyBlue();
-    testKeepOnlyRed();
-    testKeepOnlyGreen();
-    testNegate();
-    testGrayscale();
-    testFixUnderwater();
-    testMirrorVertical();
-    testMirrorTemple();
-    testMirrorArms();
-    testMirrorGull();
-    testMirrorDiagonal();
-    testCollage();
-    testCopy();
-    testEdgeDetection();
-    testEdgeDetection2();
+//    testBlur(300,50,50,100,10);
+  //  testHorizantalMirror();
+//    testHorizantalMirrorBotToTop();
+  //  testZeroBlue();
+//    testKeepOnlyBlue();
+    //testKeepOnlyRed();
+    //testKeepOnlyGreen();
+//    testNegate();
+  //  testGrayscale();
+//    testFixUnderwater();
+  //  testMirrorVertical();
+    //testMirrorTemple();
+//    testMirrorArms();
+  //  testMirrorGull();
+    //testMirrorDiagonal();
+	testCollage();
+  //  testCopy();
+//    testEdgeDetection();
+    //testEdgeDetection2();
     //testChromakey();
     //testEncodeAndDecode();
     //testGetCountRedOverValue(250);
