@@ -58,17 +58,17 @@ public class AlienHorde
 
   public void removeDeadOnes(List<Ammo> shots)
   {
-	if (aliens.size()>0&&shots.size()>0){
-		System.out.println("there are bullets&aliens");
-		for (int i = aliens.size()-1; i<0 ;i--){
-			for (int j=shots.size()-1; j<0; j--){
+	//if (aliens.size()>0 && shots.size()>0){
+		for (int i = aliens.size()-1; i>=0 ;i--){
+			for (int j=shots.size()-1; j>=0; j--){
 				if (shots.get(j).didColide(aliens.get(i))){
 					System.out.println("hit");
 					aliens.remove(i);
+					shots.remove(j);
 				}
 			}
 		}
-	}
+	//}
 
   }
 

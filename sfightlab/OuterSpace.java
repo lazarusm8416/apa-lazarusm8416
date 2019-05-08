@@ -82,21 +82,21 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable
 
 
     if(keys[0] == true)
-    {System.out.println("AAAAAA");
+    {
         ship.move("left");
     }
     if (keys[1]==true){
-	System.out.println("BBBB");
+	
 	ship.move("right");
 	}
 
     if (keys[2]==true){
-	System.out.println("CCCCCC");
+	
 	ship.move("up");
 	}
 
     if (keys[3]==true){
-	System.out.println("DDDDDD");
+	
 	ship.move("down");
 	}
 	

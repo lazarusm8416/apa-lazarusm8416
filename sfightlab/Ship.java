@@ -59,7 +59,7 @@ public class Ship extends MovingThing
 
   public void move(String direction)
   {
-	System.out.println("MOVE");
+	
 	if (direction.equals("up"))
 		setY(getY()-speed);
 	if (direction.equals("down"))
