@@ -17,6 +17,20 @@ public static void testBlur(int x, int y, int w, int h, int n){
 }
 
 ///////////////////////
+	
+public static void testMirrorrms(){
+	Picture snow = new Picture("snowman.jpg");
+	snow.explore();
+	snow.mirrorArms();
+	snow.explore();
+}
+	
+public static void testMirrorGull(){
+	Picture gull = new Picture("seagull.jpg");
+	gull.explore();
+	gull.testMirrorGull();
+	gull.explore();
+}
 
 public static void testKeepOnlyBlue(){
 	Picture swan = new Picture("swan.jpg");
@@ -39,7 +53,7 @@ public static void testGrayscale(){
 	beach.explore();
 }
 
-public static void findFish(){
+public static void fixUnderwater(){
 	Picture fish = new Picture("water.jpg");
 	fish.explore();
 	fish.findFish();
@@ -70,6 +84,14 @@ public static void testDiagonal(){
 	p.Diag();
 	p.explore();
 }
+
+public static void testCopy(){
+	  Picture g = new Picture("seagull.jpg");
+	  Picture s = new Picture("swan.jpg");
+	  canvas.copy(other, 20, 20, 237, 345, 234, 320);
+	  canvas.explore();
+}
+	
 /////////////////
 
   /** Method to test zeroBlue */
@@ -102,9 +124,12 @@ public static void testDiagonal(){
   /** Method to test the collage method */
   public static void testCollage()
   {
-    Picture canvas = new Picture("640x480.jpg");
-    canvas.createCollage();
-    canvas.explore();
+    Picture art = new Picture("640x480.jpg");
+    Picture one = new Picture("snowman.jpg");
+    Picture two = new Picture("swan.jpg");
+    Picture three = new Picture("seagull.jpg");
+    art.myCollage(one,two,three);
+    art.explore();
   }
   
   /** Method to test edgeDetection */
@@ -114,6 +139,13 @@ public static void testDiagonal(){
     swan.edgeDetection(10);
     swan.explore();
   }
+public static void testEdgeDetection2(){
+	Picture s = new Picture("swan.jpg");
+	s.edgeDetection(10);
+	s.explore();
+	s.edgeDetection2(10);
+	s.explore
+}
   
   /** Main method for testing.  Every class can have a main
     * method in Java */
@@ -123,25 +155,24 @@ public static void testDiagonal(){
     // and comment out the ones you don't want
     // to run
     testBlur(300,50,50,100,10);
-//   testHorizantalMirror();
-    //testHorizantalMirrorBotToTop();
-    //findFish();
-    //testZeroBlue();
-    //testKeepOnlyBlue();
-    //testKeepOnlyRed();
-    //testKeepOnlyGreen();
-    //testNegate();
-    //testGrayscale();
-    //testFixUnderwater();
-    //testMirrorVertical();
-    //testMirrorTemple();
-    //testMirrorArms();
-    //testMirrorGull();
-    //testMirrorDiagonal();
-    //testCollage();
-    //testCopy();
-    //testEdgeDetection();
-    //testEdgeDetection2();
+    testHorizantalMirror();
+    testHorizantalMirrorBotToTop();
+    testZeroBlue();
+    testKeepOnlyBlue();
+    testKeepOnlyRed();
+    testKeepOnlyGreen();
+    testNegate();
+    testGrayscale();
+    testFixUnderwater();
+    testMirrorVertical();
+    testMirrorTemple();
+    testMirrorArms();
+    testMirrorGull();
+    testMirrorDiagonal();
+    testCollage();
+    testCopy();
+    testEdgeDetection();
+    testEdgeDetection2();
     //testChromakey();
     //testEncodeAndDecode();
     //testGetCountRedOverValue(250);
