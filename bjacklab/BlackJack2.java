@@ -61,19 +61,26 @@ public class BlackJack2
 	System.out.println("----------------------------");
 			String output = "";
 			output+="DEALER(CPU):\n "+dealer;
+			if (dealer.getHandValue()>21){
+				output+="  BUSTED";
+			}
 			for (int i =1; i<players.size(); i++){
 				output +="\n\nPlayer "+i+ ":\n" + players.get(i);
+				if (players.get(i).getHandValue()>21){
+					output+="  BUSTED";
+				}
 			}
 			System.out.println(output);
+
 	ArrayList<Integer> winList = new ArrayList<Integer>();
 	int wScore = 0;
 	for (int i =0; i<players.size(); i++){
 		if (players.get(i).getHandValue()<=21&&players.get(i).getHandValue()>wScore){
 			winList=new ArrayList<Integer>();
 			winList.add(i);
-
+			wScore=players.get(i).getHandValue();
 		}
-		if (players.get(i).getHandValue()==wScore){
+		else if (players.get(i).getHandValue()==wScore){
 			winList.add(i);
 		}
 	}
