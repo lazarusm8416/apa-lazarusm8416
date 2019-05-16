@@ -65,9 +65,33 @@ public class BlackJack2
 				output +="\n\nPlayer "+i+ ":\n" + players.get(i);
 			}
 			System.out.println(output);
+	ArrayList<Integer> winList = new ArrayList<Integer>();
+	int wScore = 0;
+	for (int i =0; i<players.size(); i++){
+		if (players.get(i).getHandValue()<=21&&players.get(i).getHandValue()>wScore){
+			winList=new ArrayList<Integer>();
+			winList.add(i);
 
+		}
+		if (players.get(i).getHandValue()==wScore){
+			winList.add(i);
+		}
+	}
+	System.out.println("\n------------------------------\n");
+	String winners = "";
+	if (winList.size()>0){
+		winners+="WINNERS: ";
+		for (int i : winList){
+			if (i==0){
+				winners+="Dealer    ";
+			}else{
+				winners+="Player "+i+ "    ";
+			}
 
-
+			players.get(i).setWinCount(players.get(i).getWinCount()+1);
+		}
+	}
+	System.out.println(winners);
  }
   
        
